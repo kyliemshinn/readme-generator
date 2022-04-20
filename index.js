@@ -9,49 +9,20 @@ const questions = [
     {
         type: 'input',
         message: "What is the name of your repository?",
-        name: 'repo name',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please enter the Github repository name.");
-            }
-            return true;
-        }
+        name: 'title',
     },
 
     {
         type: 'input',
         message: "What is your Github username?",
-        name: 'username',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please enter the Github username.");
-            }
-            return true;
-        }
+        name: 'username',  
     },
 
     {
         type: 'input',
         message: "Describe the purpose of this project?",
-        name: 'description',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please enter a description of your project.");
-            }
-            return true;
-        }
-    },
-
-    {
-        type: 'input',
-        message: "Describe the purpose of this project?",
-        name: 'description',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please enter a description of your project.");
-            }
-            return true;
-        }
+        name: 'description ',
+    
     },
 
     {
@@ -85,8 +56,7 @@ const questions = [
         type: 'input',
         message: "Choose a license for this project.",
         name: 'project',
-        //finish adding more choices for licenses
-        choices: ['MIT', '']
+        choices: ['MIT', 'Boost', 'Apache', 'BSD']
         
     },
 
