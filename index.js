@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
-const inquirer = ("inquirer")
+const inquirer = require("inquirer")
 const fs = require('fs');
+const generateMarkdown = ('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -10,7 +11,6 @@ const questions = [
         message: "What is the name of your repository?",
         name: 'repo name',
         check: function (answer) {
-// could potentially also try !answer???
             if (answer.length < 1) {
                 return console.log("Please enter the Github repository name.");
             }
@@ -58,76 +58,65 @@ const questions = [
         type: 'input',
         message: "What are the steps to install this project?",
         name: 'installation',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please input installation features.");
-            }
-            return true;
-        }
     },
 
     {
         type: 'input',
         message: "What is the intended use of this project?",
         name: 'Use',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please input usage features.");
-            }
-            return true;
-        }
     },
 
     {
         type: 'input',
         message: "Who are the contributors to this project?",
         name: 'contributors',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please input contributors.");
-            }
-            return true;
-        }
+        
+        
     },
 
     {
         type: 'input',
         message: "How do you run tests with this app?",
         name: 'test',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please input test features.");
-            }
-            return true;
-        }
+      
     },
 
     {
         type: 'input',
         message: "Choose a license for this project.",
         name: 'project',
-        check: function (answer) {
-            if (answer.length < 1) {
-                return console.log("Please choose a license.");
-            }
-            return true;
-        }
+        //finish adding more choices for licenses
+        choices: ['MIT', '']
+        
     },
 
 
-];
+]
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+.then((response) => {
+    console.log(response)
 
-    // fs.writeFile('README.md', data, err => {
-    //     // console log error if there is a known error
-    //     (err) ? console.log(err) : console.log('README has been succfessfully generated!')
-    // }
-}
+})
+    
+//Create a function to write README file
+//redefine with later data
+function writeToFile(generateMarkdown, response) {
+
+//taking in the file, the data, and the callback
+    fs.writeFile(generateMarkdown, response, (err) => {
+        // console log error if there is a known error
+        (err) ? console.log(err) : console.log('README has been succfessfully generated!')
+    }
+)}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+    .prompt(questions).then((response) => {
+        //paste answers onto the generated readme file
+        writeToFile('generatereadme.md', response)
+    })
+}
 
 
 
