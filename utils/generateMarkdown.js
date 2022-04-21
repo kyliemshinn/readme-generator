@@ -45,19 +45,19 @@ ${renderLicenseLink(data.license)}
     
  ## Table of Contents
   
-[Description](#Description)
+- [Description](#Description)
 
-[Installation](#Installation)
+- [Installation](#Installation)
 
-[Usage](#Usage)
+- [Usage](#Usage)
 
-[License](#License)
+- [License](#License)
 
-[Contributors](#Contributors)
+- [Contributors](#Contributors)
 
-[Tests](#Tests)
+- [Tests](#Tests)
 
-[Questions](#Questions)
+- [Questions](#Questions)
   
   ## Description
   

@@ -72,8 +72,7 @@ const questions = [
 function writeToFile(fileName, data) {
 
     //only take in two parameters, join the path of files to one, and grab the data
-   fs.writeFile(path.join(fileName), data, err);
-    err ? console.error(err) : console.log('Commit logged!')
+   return fs.writeFileSync(path.join(fileName), data);
     
 }
     
@@ -83,7 +82,7 @@ function writeToFile(fileName, data) {
         .prompt(questions).then((response) => {
             console.log('README has been succfessfully generated!')
             //paste answers onto the generated readme file and where you get data from
-            writeToFile('README.md', generateMarkdown({...response}));
+            writeToFile('GENERATEDREADME.md', generateMarkdown({...response}));
         
     });
 }
