@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer")
 const fs = require('fs');
-const path = require('path')
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
@@ -16,7 +15,7 @@ const questions = [
     {
         type: 'input',
         message: "What is your Github username?",
-        name: 'username',  
+        name: 'github',  
     },
 
     {
@@ -58,7 +57,7 @@ const questions = [
         message: "Choose a license for this project.",
         name: 'license',
         //only want select number of choices for this section
-        choices: ['MIT', 'Boost', 'Apache', 'BSD']
+        choices: ['MIT', 'Boost', 'Apache', 'BSD', 'None']
         
     },
 
@@ -71,8 +70,8 @@ const questions = [
 //if file path doesnt exist create it
 function writeToFile(fileName, data) {
 
-    //only take in two parameters, join the path of files to one, and grab the data
-   return fs.writeFileSync(path.join(fileName), data);
+    //only take in two parameters, will create a new file if one does not exist, join all the segments into one path, and grab the data
+   return fs.writeFileSync((fileName), data);
     
 }
     
@@ -80,7 +79,7 @@ function writeToFile(fileName, data) {
     function init() {
         inquirer
         .prompt(questions).then((response) => {
-            console.log('README has been succfessfully generated!')
+            console.log('README has been successfully generated!')
             //paste answers onto the generated readme file and where you get data from
             writeToFile('GENERATEDREADME.md', generateMarkdown({...response}));
         
