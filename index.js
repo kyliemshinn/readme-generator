@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer")
 const fs = require('fs');
-const generateMarkdown = ('./utils/generateMarkdown.js')
+const path = require('path')
+const generateMarkdown = require('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -21,7 +22,7 @@ const questions = [
     {
         type: 'input',
         message: "Describe the purpose of this project?",
-        name: 'description ',
+        name: 'description',
     
     },
 
@@ -53,9 +54,10 @@ const questions = [
     },
 
     {
-        type: 'input',
+        type: 'list',
         message: "Choose a license for this project.",
-        name: 'project',
+        name: 'license',
+        //only want select number of choices for this section
         choices: ['MIT', 'Boost', 'Apache', 'BSD']
         
     },
@@ -63,29 +65,27 @@ const questions = [
 
 ]
 
-.then((response) => {
-    console.log(response)
-
-})
     
 //Create a function to write README file
 //redefine with later data
-function writeToFile(generateMarkdown, response) {
+//if file path doesnt exist create it
+function writeToFile(fileName, data) {
 
-//taking in the file, the data, and the callback
-    fs.writeFile(generateMarkdown, response, (err) => {
-        // console log error if there is a known error
-        (err) ? console.log(err) : console.log('README has been succfessfully generated!')
-    }
-)}
-
-// TODO: Create a function to initialize app
-function init() {
-    inquirer
-    .prompt(questions).then((response) => {
-        //paste answers onto the generated readme file
-        writeToFile('generatereadme.md', response)
-    })
+    //only take in two parameters, join the path of files to one, and grab the data
+   fs.writeFile(path.join(fileName), data, err);
+    err ? console.error(err) : console.log('Commit logged!')
+    
+}
+    
+    // TODO: Create a function to initialize app
+    function init() {
+        inquirer
+        .prompt(questions).then((response) => {
+            console.log('README has been succfessfully generated!')
+            //paste answers onto the generated readme file and where you get data from
+            writeToFile('README.md', generateMarkdown({...response}));
+        
+    });
 }
 
 
