@@ -1,5 +1,6 @@
 
 # README Generator
+
 https://kyliemshinn.github.io/readme-generator/
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
@@ -37,8 +38,8 @@ https://kyliemshinn.github.io/readme-generator/
   
   Kylie Shinn
 
-  GitHub: [github](https://github.com/kyliemshinn)
-  LinkedIn: [linkedin](https://www.linkedin.com/feed/)
+  - GitHub: [github](https://github.com/kyliemshinn)
+  - LinkedIn: [linkedin](https://www.linkedin.com/feed/)
   
   ## Questions
   
