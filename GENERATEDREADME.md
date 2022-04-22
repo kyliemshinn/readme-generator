@@ -1,5 +1,5 @@
 
-# awe4gy
+# readme-generator
   
 ## License 
 
@@ -25,29 +25,29 @@
   
   ## Description
   
-  f5bz3ezf5artdhu
+  generate readmes
   
   ## Installation
   
-  35hauqdyer7gbf f
+  npm install
   
   ## Usage 
   
-  35freyghubav
+  reference video
   
   
   ## Tests 
   
-  d4aezbfhuqt56gj
+  jest
   
   ## Contributors
   
-  s
+  kylie shinn
   
   ## Questions
   
   For additional information please contact me at undefined
 
-  GitHub: undefined
+  GitHub: kyliemshinn
 
   

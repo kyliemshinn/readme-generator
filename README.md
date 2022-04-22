@@ -30,8 +30,11 @@ https://kyliemshinn.github.io/readme-generator/
   ## Usage 
   
   Please reference the video to see the proper usage for the README generator.
+  For a full video with audio of the project, go to https://youtu.be/PcSX_w97O2A
 
-  
+  ![readmeVideo](video-readme-gif.gif)
+
+
   ## Contributors
   
   Kylie Shinn
